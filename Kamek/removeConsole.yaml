@@ -1,0 +1,8 @@
+---
+source_files: [../src/removeConsole.cpp, ../src/removeConsole.S]
+hooks:
+  - name: NoConsoleAllowed
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x801018E0
+    target_func: 'PreventConsoleUse'

@@ -1,0 +1,64 @@
+---
+
+
+source_files: [../src/spikykoopa.cpp]
+hooks:
+  - name: Koopa_Spiky_Collision
+    type: add_func_pointer
+    src_addr_pal: 0x80AFDEA4
+    target_func: 'daEnNoko_c::newPlayerCollision(ActivePhysics*, ActivePhysics*)'
+
+  - name: Koopa_Spiky_Create
+    type: add_func_pointer
+    src_addr_pal: 0x80AFDDB4
+    target_func: 'daEnNoko_c::newOnCreate()'
+
+  - name: Koopa_Spiky_Score
+    type: add_func_pointer
+    src_addr_pal: 0x80AFDFFC
+    target_func: 'daEnNoko_c::newAddScoreWhenHit(void*)'
+
+  # - name: Koopa_Spiky_Draw
+  #   type: add_func_pointer
+  #   src_addr_pal: 0x80AFDDD8
+  #   target_func: 'daEnNoko_c::newOnDraw()'
+
+  # - name: ExpandKoopaStruct
+  #   type: patch
+  #   addr_pal: 0x80A724A8
+  #   data: '38600B18' #Original: 38600A18
+
+  - name: ParaKoopa_Spiky_Create
+    type: add_func_pointer
+    src_addr_pal: 0x80B02B7C
+    target_func: 'daEnNoko_c::newOnCreate()'
+
+  - name: ParaKoopa_Spiky_Execute
+    type: add_func_pointer
+    src_addr_pal: 0x80B02B94
+    target_func: 'daEnPata_c::newOnExecute()'
+
+  - name: ParaKoopa_Spiky_Score
+    type: add_func_pointer
+    src_addr_pal: 0x80B02DC4
+    target_func: 'daEnPata_c::newAddScoreWhenHit(void*)'
+
+  - name: ParaKoopa_Spiky_Collision
+    type: add_func_pointer
+    src_addr_pal: 0x80B02C6C
+    target_func: 'daEnPata_c::newPlayerCollision(ActivePhysics*, ActivePhysics*)'
+
+  - name: BulletBill_Spiky_Create
+    type: add_func_pointer
+    src_addr_pal: 0x80AF6728
+    target_func: 'BulletBill::newOnCreate()'
+
+  - name: BulletBill_Spiky_Score
+    type: add_func_pointer
+    src_addr_pal: 0x80AF6970
+    target_func: 'BulletBill::newAddScoreWhenHit(void*)'
+
+  - name: BulletBill_Spiky_Collision
+    type: add_func_pointer
+    src_addr_pal: 0x80AF6818
+    target_func: 'BulletBill::newPlayerCollision(ActivePhysics*, ActivePhysics*)'

@@ -1,0 +1,16 @@
+---
+#Replaces Actor 275 AC_BOSS_KOOPA_RUBBLE (Sprite 481)
+
+
+source_files: [../src/goal.cpp]
+hooks:
+  - name: NewGoalBuild
+    type: add_func_pointer
+    src_addr_pal: 0x80955350
+    target_func: 'daNewGoal_c::build()'
+
+  - name: NewGoalSpriteFileInfo
+    type: add_func_pointer
+    src_addr_pal: 0x8031b2d0
+    target_func: 'GOarcNameList'
+    # 0x8031AB4C + sprite num * 0x4 == offset

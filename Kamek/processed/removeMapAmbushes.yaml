@@ -1,0 +1,10 @@
+hooks:
+- area_jpn: 2156789268
+  area_jpn2: 2156789284
+  area_ntsc: &id001 2156789972
+  area_ntsc2: 2156789988
+  area_pal: *id001
+  area_pal2: 2156789988
+  name: removeAmbushes
+  type: nop_insn
+source_files: []

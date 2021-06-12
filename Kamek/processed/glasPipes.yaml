@@ -1,0 +1,10 @@
+hooks:
+- area_jpn: &id001 2147813516
+  area_jpn2: *id001
+  area_ntsc: *id001
+  area_ntsc2: *id001
+  area_pal: *id001
+  area_pal2: *id001
+  name: makePlayerNotInvisible
+  type: nop_insn
+source_files: []

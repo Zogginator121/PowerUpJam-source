@@ -1,0 +1,29 @@
+---
+#Replaces Actor 172 BIGHANA_MGR (Sprite 241)
+
+
+source_files: [../src/windmill.cpp]
+hooks:
+  - name: WindmillBuild
+    type: add_func_pointer
+    src_addr_pal: 0x80952998
+    target_func: 'daWindmill_c::build()'
+
+  - name: WindmillSpriteFileInfo
+    type: add_func_pointer
+    src_addr_pal: 0x8031af10
+    target_func: 'GLarcNameList'
+    # 0x8031AB4C + sprite num * 0x4 == offset
+
+  - name: UpdateaSpriteInfo
+    type: patch
+    # 0x8030A340 + sprite num * 0x28 == offset
+    addr_pal: 0x8030c8e8
+    #      -ID- ----  -X Offs- -Y Offs-  -RectX1- -RectY1- -RectX2- -RectY2-  -1C- -1E- -20- -22-  Flag ----
+    #orig '00AC 0000  00000000 00000000  00000000 00000000 00000010 00000010  0000 0000 0000 0000  0000 0000'
+    data: '00AC 0000  00000000 00000000  00000010 00000FFF 000FFFFF 00000FFF  0000 0000 0000 0000  0000 0000'
+
+  - name: EN_STAR_COIN_replace
+    type: add_func_pointer
+    src_addr_pal: 0x80B09678
+    target_func: 'EN_STAR_COIN::newZorder()'
